@@ -26,7 +26,7 @@ import RightState from './context/right/rightState'
 import FileState from './context/file/fileState'
 import mainState from './context/main/mainState'
 
-import { HashRouter as Router, Switch, Route ,Redirect} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route ,Redirect} from 'react-router-dom'
 import MainState from './context/main/mainState';
 
 

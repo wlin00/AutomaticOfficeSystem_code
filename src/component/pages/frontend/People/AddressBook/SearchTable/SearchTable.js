@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Typography, Table, Input, Tag, Button, Modal, message, Select } from 'antd'
+import { Spin,Typography, Table, Input, Tag, Button, Modal, message, Select } from 'antd'
 import { Link } from 'react-router-dom'
 import UserContext from '../../../../../../context/user/userContext'
 import Spinner from '../../../../../laout/Spinner'
@@ -31,12 +31,15 @@ const SearchTable = (props) => {
         props.location.query ?  getSearchTable(props.location.query.name, 5, 1) : getGroup(5, 1)       
         getDutyList()   //拉取职务信息外键
         getDepartment()   //拉取部门信息外键
+        // changeTitle()
         return handleComponentWillUnMount
     }, [])
 
     const handleComponentWillUnMount = () => {
         setMode(false)
     }
+
+   
 
     // console.log(mode,groupCount)
      console.log(props.location.query,'qqq')
@@ -115,20 +118,16 @@ const SearchTable = (props) => {
 
     const columns = [
         {
+            title:'姓名',
+            dataIndex: 'username',
+            key: 'username',
+            className:'antd_name',
+        },
+        {
             title: '头像',
             dataIndex: 'img',
             key: 'img',
-            render: src => <span>
-                {<img className='Table1-img'
-                    src={src}
-                    alt='pic'
-                />}
-            </span>,
-        },
-        {
-            title: '姓名',
-            dataIndex: 'name',
-            key: 'name',
+            render:src=><span>{<img className='SearchTable-img' src={src} alt='pic' />}</span>,
         },
         {
             title: '联系方式',
@@ -180,8 +179,8 @@ const SearchTable = (props) => {
             group.forEach((item, index) => {
                 data.push({
                     key: item.id,
-                    img: item.portraits.includes('default.png') ? imgUser : 'http://52.80.161.97:9616/AutomaticOfficeSystem/portraits/' + item.portraits,
-                    name: item.name ? item.name : '未填写',
+                    username: item.name ? item.name : '未填写',
+                    img: item.portraits.slice(24),
                     phone: item.tel ? item.tel : '未填写',
                     mail: item.email ? item.email : '未填写',
                     job: item.id && item.duty && duty.length > 0 ? duty[item.duty - 1].dutyName : '未填写',
@@ -195,8 +194,8 @@ const SearchTable = (props) => {
             _table.forEach((item, index) => {
                 data.push({
                     key: item.id,
-                    img: item.portraits.includes('default.png') ? imgUser : 'http://52.80.161.97:9616/AutomaticOfficeSystem/portraits/' + item.portraits,
-                    name: item.name ? item.name : '未填写',
+                    username: item.name ? item.name : '未填写',
+                    img: item.portraits.slice(24),
                     phone: item.tel ? item.tel : '未填写',
                     mail: item.email ? item.email : '未填写',
                     job: item.id && item.duty && duty.length > 0 ? duty[item.duty - 1].dutyName : '未填写',
@@ -208,7 +207,46 @@ const SearchTable = (props) => {
     }
 
 
-    if (loading) { return (<Spinner></Spinner>) }
+     //处理表头兼容性问题
+        let node = document.querySelector('.antd_name>span>div>.ant-table-column-title')
+        if(node){
+            node.innerText='姓名'
+        }
+
+        
+    if (loading) { return <Spin className="myLoading" tip="加载中..."  size='large'>
+         <div className='SearchTable'>
+             <div className='navText' style={{position:'relative'}}>
+                <Text strong style={{ color: '#ff0000' }} className='navFont'>用户搜索</Text>
+                <div className='SearchTable-search' >
+                <Text style={{minWidth:'65px'}}>搜索：</Text>
+                <Search
+                    maxLength={20}
+                    placeholder="输入用户名搜索"
+                    onSearch={handleSearch}
+                    style={{ width: 200 }}
+                />
+            </div>
+            </div>
+
+            <ul className='SearchTable-ul'>
+                <li style={{ listStyle: 'none', position: 'relative', left:'20px',marginRight: '2%',display:'flex',justifyContent:'space-around',alignItems:'center' }}>
+                    <SyncOutlined onClick={handleRefresh} className='redLink ' style={{ fontSize: '23px' ,transform:'translateY(-50%)',top:'50%',position:'absolute'}} />
+                </li>
+                {mode &&
+                    <li style={{ listStyle: 'none', position: 'relative', left:'20px' }}>
+                        <span style={{transform:'translateY(-50%)'}} className='searchInfo'>为您搜索到<span style={{color:'red'}}>{_count}</span>条数据～</span>
+                    </li>
+                }   
+                <Link to='/people/addressBook' className='AccountEdit-link' ><Button className='SearchTable-btn' type='danger'>返回</Button></Link>
+
+            </ul>
+            <div className='SearchTable-wrap'>
+                <Table columns={columns} dataSource={data} pagination={paginationProps} />
+            </div>
+
+        </div>
+    </Spin> }
 
 
 

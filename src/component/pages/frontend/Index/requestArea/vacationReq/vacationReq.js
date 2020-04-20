@@ -55,7 +55,7 @@ const VacationReq = (props) => {
         setTime(val.target.value)
     }
     const handleNoticeChange = (val) => {
-        if(val.target.value.length>140){return}
+        // if(val.target.value.length>140){return}
         setNotice(val.target.value)
     }
     const handleTypeChange = (val) => {
@@ -135,7 +135,7 @@ const VacationReq = (props) => {
 
             <div className='vacationReq-wrap'>
                 <div className='vacationReq-wrap__title'>休假及外出申请</div>
-                <div className='vacationReq-wrap__box'>
+                <div className='vacationReq-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='vacationReq-wrap__div'>
                         <Text strong className="vacationReq-wrap__text">主题</Text>
                         <Input
@@ -155,7 +155,6 @@ const VacationReq = (props) => {
                         />
                     </div>
                 </div>
-                
                 <div className='vacationReq-wrap__box'>
                     <div className='vacationReq-wrap__div'>
                         <Text strong className="vacationReq-wrap__text">日期</Text>

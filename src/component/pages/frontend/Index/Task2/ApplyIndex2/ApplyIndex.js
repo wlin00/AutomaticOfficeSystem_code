@@ -140,7 +140,7 @@ const ApplyIndex = (e) => {
 
 
     const handleNoticeChange = (val) => {
-        if(val.target.value.length>140){return}
+        // if(val.target.value.length>140){return}
         setNotice(val.target.value)
     }
 

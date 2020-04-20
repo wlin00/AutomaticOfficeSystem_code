@@ -88,39 +88,6 @@ const FileState = props => {
 
     }
 
-    
-    //   //getGroup ,用于搜素后的重置，文件总信息
-    //   const getGroup = async (limit,page) => {
-    
-    //     setLoading(true)
-
-    //     let res = null
-    //     try{
-    //        res  =await axios.get(`/AutomaticOfficeSystem/organizationalManagement/api/v1/getUser?limit=${limit}&page=${page}`,{
-    //        },{
-    //            headers:{
-    //                'content-type':'application/json;charset=UTF-8'
-    //            }
-    //        })
-    //     }catch(err){
-    //         setLoading(false)
-    //         // message.info(err)
-    //         return Promise.reject(err)
-    //     }
-    //     console.log(res.data.count)
-    //     console.log('group= ',res.data.data)
-    //     dispatch({
-    //         type: GET_GROUP,
-    //         payload: {
-    //             group: res.data.data,
-    //             groupCount: res.data.count
-
-    //         }
-    //     })
-    //     setLoading(false)
-    //     setMode(false)
-
-    // }
 
      //getSearchTable ,按搜索分页获取组织表格
      const _getFile = async (name,limit,page) => {

@@ -187,7 +187,7 @@ const AccountEdit = (props) => {
                 return
             }
         }).catch(err => {
-            message.ingo(err)
+            message.info(err)
         })
 
 

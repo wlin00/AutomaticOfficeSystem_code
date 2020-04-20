@@ -138,7 +138,7 @@ const PactReq = (props) => {
             </div>
             <div className='pactReq-wrap'>
                 <div className='pactReq-wrap__title'>合同申请</div>
-                <div className='pactReq-wrap__box'>
+                <div className='pactReq-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='pactReq-wrap__div'>
                         <Text strong className="pactReq-wrap__text">主题</Text>
                         <Input
@@ -158,7 +158,6 @@ const PactReq = (props) => {
                         />
                     </div>
                 </div>
-                
                 <div className='pactReq-wrap__box'>
                     <div className='pactReq-wrap__div'>
                         <Text strong className="pactReq-wrap__text">付款日期</Text>

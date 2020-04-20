@@ -101,7 +101,7 @@ const handleCancel1 = e => {
                 return
             }
         }).catch(err => {
-            message.ingo(err)
+            message.info(err)
         })
     };
 

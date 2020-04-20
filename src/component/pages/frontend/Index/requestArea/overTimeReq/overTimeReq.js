@@ -52,7 +52,7 @@ const OverTimeReq = (props) => {
         setTime(val.target.value)
     }
     const handleNoticeChange = (val) => {
-        if(val.target.value.length>140){return}
+        // if(val.target.value.length>140){return}
         setNotice(val.target.value)
     }
     const handlePaybackChange = (val) => {
@@ -126,7 +126,7 @@ const OverTimeReq = (props) => {
             </div>
             <div className='overTimeReq-wrap'>
                 <div className='overTimeReq-wrap__title'>加班申请</div>
-                <div className='overTimeReq-wrap__box'>
+                <div className='overTimeReq-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='overTimeReq-wrap__div'>
                         <Text strong className="overTimeReq-wrap__text">主题</Text>
                         <Input
@@ -146,7 +146,6 @@ const OverTimeReq = (props) => {
                         />
                     </div>
                 </div>
-                
                 <div className='overTimeReq-wrap__box'>
                     <div className='overTimeReq-wrap__div'>
                         <Text strong className="overTimeReq-wrap__text">日期</Text>

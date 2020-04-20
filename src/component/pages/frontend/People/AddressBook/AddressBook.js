@@ -78,74 +78,12 @@ const AddressBook = (props) => {
                                           src={dep.portraits}
                                           alt='pic'
                                       />
-                                    <Text className='AddressBook-nav__text'>{dep.name}</Text>
+                                    <Text  className='AddressBook-nav__text'>{dep.name}</Text>
                             </NavLink>
                             </li> 
                          ))
                      }
-                    {/* <li className='AddressBook-nav__li'>
-                        <NavLink  className='AddressBook-navLink' exact activeClassName='AddressBook-nav__li--active' to='/people/addressBook'>
-                                <img className='AddressBook-nav__img'
-                                    src={require('../../../../../pic/10.png')}
-                                    alt='pic'
-                                />
-                                <Text className='AddressBook-nav__text'>管理层</Text>
-                        </NavLink>
-                        </li> */}
-                        {/* <li className='AddressBook-nav__li'>
-                        <NavLink  className='AddressBook-navLink' activeClassName='AddressBook-nav__li--active'  to='/people/addressBook/table2'>
-                                <img className='AddressBook-nav__img'
-                                    src={require('../../../../../pic/2.png')}
-                                    alt='pic'
-                                />
-                                <Text className='AddressBook-nav__text'>财务部</Text>
-                        </NavLink>
-                        </li>
-                        <li className='AddressBook-nav__li'>
-
-                        <NavLink className='AddressBook-navLink' activeClassName='AddressBook-nav__li--active'  to='/people/addressBook/table3'> 
-                                <img className='AddressBook-nav__img'
-                                    src={require('../../../../../pic/5.png')}
-                                    alt='pic'
-                                />
-                                <Text className='AddressBook-nav__text'>人事部</Text>
-                        </NavLink>
-                        </li>
-                        <li className='AddressBook-nav__li'>
-                        <NavLink className='AddressBook-navLink' activeClassName='AddressBook-nav__li--active'  to='/people/addressBook/table4'>
-                                <img className='AddressBook-nav__img'
-                                    src={require('../../../../../pic/25.png')}
-                                    alt='pic'
-                                />
-                                <Text className='AddressBook-nav__text'>研发部</Text>
-                        </NavLink>
-                        </li>
-                        <li className='AddressBook-nav__li'>
-                        <NavLink  className='AddressBook-navLink' activeClassName='AddressBook-nav__li--active' to='/people/addressBook/table5'>
-                                <img className='AddressBook-nav__img'
-                                    src={require('../../../../../pic/24.png')}
-                                    alt='pic'
-                                />
-                                <Text className='AddressBook-nav__text'>销售部</Text>
-                        </NavLink>
-                        </li>
-                        <li className='AddressBook-nav__li'>
-                        <NavLink  className='AddressBook-navLink' activeClassName='AddressBook-nav__li--active' to='/people/addressBook/table5'>
-                                <img className='AddressBook-nav__img'
-                                    src={require('../../../../../pic/24.png')}
-                                    alt='pic'
-                                />
-                                <Text className='AddressBook-nav__text'>销售部</Text>
-                        </NavLink>
-                        </li><li className='AddressBook-nav__li'>
-                        <NavLink  className='AddressBook-navLink' activeClassName='AddressBook-nav__li--active' to='/people/addressBook/table5'>
-                                <img className='AddressBook-nav__img'
-                                    src={require('../../../../../pic/24.png')}
-                                    alt='pic'
-                                />
-                                <Text className='AddressBook-nav__text'>销售部</Text>
-                        </NavLink>
-                        </li> */}
+            
                     </ul>
                 </div>
                 <div className='AddressBook-bfc'>

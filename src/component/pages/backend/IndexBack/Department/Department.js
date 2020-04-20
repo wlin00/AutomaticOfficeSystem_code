@@ -81,7 +81,7 @@ const Department = (e) => {
                 return
             }
         }).catch(err => {
-            message.ingo(err)
+            message.info(err)
         })
     }
 
@@ -220,11 +220,11 @@ const Department = (e) => {
             <div className='Department-wrap Department-box'>
 
                 <div style={{padding:'0 3%'}}>
-                <div className='navWrap' style={{ padding: '5px 0 0 2px' ,}}>
+                <div className='navWrap Department-scroll' style={{ padding: '5px 0 0 2px' ,overflowY:'scroll',maxHeight:'560px'}}>
                     {
                         depIcon.length>0 &&
                         depIcon.map(item=>(
-                            <div className='navItem2' key={item.id}>
+                            <div className='navItem2' style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}} key={item.id}>
                             <Link
                                 to={`/indexback/department${item.id}`}
                                 className='navBox2'>
@@ -233,7 +233,7 @@ const Department = (e) => {
                                     alt='pic'
                                 />
                             </Link>
-                            <Text className='navItem_text2'>{item.name}</Text>
+                            <Text style={{height:'60px',lineHeight:'60px',display:'inline-block'}} className='navItem_text2'>{item.name}</Text>
                         </div>
                           )
                         )

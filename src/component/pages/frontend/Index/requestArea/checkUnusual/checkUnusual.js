@@ -51,7 +51,7 @@ const CheckUnusual = (props) => {
         setTime(val.target.value)
     }
     const handleNoticeChange = (val) => {
-        if (val.target.value.length > 140) { return }
+        // if (val.target.value.length > 140) { return }
         setNotice(val.target.value)
     }
     const handleTypeChange = (val) => {
@@ -119,7 +119,7 @@ const CheckUnusual = (props) => {
             </div>
             <div className='checkUnusual-wrap'>
                 <div className='checkUnusual-wrap__title'>考核异常申请</div>
-                <div className='checkUnusual-wrap__box'>
+                <div className='checkUnusual-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='checkUnusual-wrap__div'>
                         <Text strong className="checkUnusual-wrap__text">主题</Text>
                         <Input
@@ -139,7 +139,6 @@ const CheckUnusual = (props) => {
                         />
                     </div>
                 </div>
-                
                 <div className='checkUnusual-wrap__box'>
                     <div className='checkUnusual-wrap__div'>
                         <Text strong className="checkUnusual-wrap__text">日期</Text>

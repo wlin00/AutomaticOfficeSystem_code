@@ -51,7 +51,7 @@ const Login = (props) => {
         let dt = { password: password, username: username } //需提交的表单数据，需用qs转化
 
         // eslint-disable-next-line
-        axios.post('AutomaticOfficeSystem/login/api/v1/login', qs.stringify(dt),
+        axios.post('/AutomaticOfficeSystem/login/api/v1/login', qs.stringify(dt),
             {
                 headers: {
                     'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',

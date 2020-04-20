@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Spin,Carousel, Typography, Modal, Button, Input, message } from 'antd'
+import { Spin, Carousel, Typography, Modal, Button, Input, message } from 'antd'
 import RightContext from '../../../../../context/right/rightContext'
 import Spinner from '../../../../laout/Spinner'
 import l_1 from '../../../../../pic/l_1.png'
@@ -29,49 +29,53 @@ const NoticeIndex = (e) => {
     console.log('pic', pic)
 
     if (loading) {
-        return (<Spin className="myLoading" tip="加载中..."  size='large'>
+        return (<Spin className="myLoading" tip="加载中..." size='large'>
             <div>
-        <div className='NoticeIndex'>
-            <div className='NoticeIndex-top' style={{ position: 'relative', top: '-40px' }}>
-                <Carousel style={{ height: '500px', marginBottom: '30px' }} autoplay>
+                <div className='NoticeIndex'>
+                    <div className='NoticeIndex-top' style={{ position: 'relative', top: '-40px' }}>
+                        <Carousel style={{ height: '500px', marginBottom: '30px' }} autoplay>
 
-                    {pic.length > 0 && pic.map(e => (
-                        <div key={e.id}>
-                            <img src={e.path} style={{ width: '100%', height: '530px' }} alt="" />
+                            {pic.length > 0 && pic.map(e => (
+                                <div key={e.id}>
+                                    <img src={e.path} style={{ width: '100%', height: '530px' }} alt="" />
+                                </div>
+                            ))}
+
+                        </Carousel>
+                    </div>
+
+                    <div className="container" >
+                        <div style={{ position: 'relative', width: '100%', height: '50px' }}>
+                            <Text strong style={{ position: 'absolute', top: '50%', transform: 'translateY(-50%)', left: '50px', color: '#ff0000', textAlign: 'center' }} className='navFont'>公示公告</Text>
                         </div>
-                    ))}
 
-                </Carousel>
-            </div>
-
-            <div className="container" >
-                <div style={{ position: 'relative', width: '100%', height: '50px' }}>
-                    <Text strong style={{ position: 'absolute', top: '50%', transform: 'translateY(-50%)', left: '50px', color: '#ff0000', textAlign: 'center' }} className='navFont'>公示公告</Text>
-                </div>
-
-                <div className='NoticeIndex-bottom'>
+                        <div className='NoticeIndex-bottom'>
 
 
+                            {mess.length === 0 &&
+                                <div className='navText' style={{ borderBottom: 'none' }}>
+                                    <Text strong style={{ color: '#666' }} >暂无信息</Text>
+                                </div>
+                            }
+                            {mess.length > 0 && mess.map(e => (
+                                <Link
+                                    key={e.id}
+                                    to={`/notice/notice${e.id}`}
+                                    className='NoticeIndex-bottom__div'>
+                                    <div className='NoticeIndex-bottom__divLeft'><img style={{ width: '100px', height: '100px' }} src={e.preview} className='redLink' /></div>
+                                    <div className='NoticeIndex-bottom__divRight'>
+                                        <Text className='redLink' style={{ fontSize: '25px' }} strong>{e.title}</Text>
+                                        <p style={{ marginTop: '15px', maxHeight: '60px', overflow: 'hidden' }}>{e.content}</p>
+                                    </div>
+                                </Link>
 
-                    {mess.length > 0 && mess.map(e => (
-                        <Link
-                            key={e.id}
-                            to={`/notice/notice${e.id}`}
-                            className='NoticeIndex-bottom__div'>
-                            <div className='NoticeIndex-bottom__divLeft'><img style={{ width: '100px', height: '100px' }} src={e.preview} className='redLink' /></div>
-                            <div className='NoticeIndex-bottom__divRight'>
-                                <Text className='redLink' style={{ fontSize: '25px' }} strong>{e.title}</Text>
-                                <p style={{ marginTop: '15px', maxHeight: '60px', overflow: 'hidden' }}>{e.content}</p>
-                            </div>
-                        </Link>
+                            ))}
+                        </div>
 
-                    ))}
+                    </div>
                 </div>
 
             </div>
-        </div>
-
-    </div>
         </Spin>)
     }
     return (<div>
@@ -96,7 +100,11 @@ const NoticeIndex = (e) => {
                 <div className='NoticeIndex-bottom'>
 
 
-
+                    {mess.length === 0 &&
+                        <div className='navText' style={{ borderBottom: 'none' }}>
+                            <Text strong style={{ color: '#666' }} >暂无信息</Text>
+                        </div>
+                    }
                     {mess.length > 0 && mess.map(e => (
                         <Link
                             key={e.id}

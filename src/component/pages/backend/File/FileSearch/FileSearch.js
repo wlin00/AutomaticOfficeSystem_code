@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext,useRef } from 'react'
-import { Typography, Table, Input, Tag, Button, Modal, message, Select } from 'antd'
+import { Spin,Typography, Table, Input, Tag, Button, Modal, message, Select } from 'antd'
 import { Link } from 'react-router-dom'
 import FileContext from '../../../../../context/file/fileContext'
 import Spinner from '../../../../laout/Spinner'
@@ -174,7 +174,49 @@ const FileSearch = (props) => {
         }
 
 
-    if (loading) { return (<Spinner></Spinner>) }
+    if (loading) { return <Spin className="myLoading" tip="加载中..."  size='large'>
+         <div className='FileSearch'>
+             <div>
+                <Modal
+                    title='提示'
+                    visible={visible}
+                    onOk={handleOk}
+                    onCancel={handleCancel}
+                >
+                    <p style={{ fontWeight: 'bold' }}>
+                        确认删除此信息？
+                   </p>
+                </Modal>
+            </div>
+             <div className='navText' style={{position:'relative'}}>
+                <Text strong style={{ color: '#ff0000' }} className='navFont'>文件搜索</Text>
+                {mode && <div className='FileSearch-search' >
+                <Text style={{minWidth:'65px'}}>搜索：</Text>
+                <Search
+                    maxLength={20}
+                    placeholder="输入用户名搜索"
+                    onSearch={handleSearch}
+                    style={{ width: 200 }}
+                />
+            </div>}
+            </div>
+
+            <ul className='FileSearch-ul'>
+               
+                {mode &&
+                    <li style={{ listStyle: 'none', position: 'relative', left:'20px' }}>
+                        <span style={{transform:'translateY(-50%)'}} className='searchInfo'>为您搜索到<span style={{color:'red'}}>{_count}</span>条数据～</span>
+                    </li>
+                }   
+                <Link to='/fileback' className='FileSearch-link' ><Button className='FileSearch-btn' type='danger'>返回</Button></Link>
+
+            </ul>
+            <div className='FileSearch-wrap'>
+                <Table columns={columns} dataSource={data} pagination={paginationProps} />
+            </div>
+
+        </div>
+    </Spin> }
 
 
 

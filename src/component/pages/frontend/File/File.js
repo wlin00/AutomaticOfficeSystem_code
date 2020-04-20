@@ -151,7 +151,7 @@ const File = (props) => {
                         </div>
                     </Modal>
                 </div>
-                <div className='File-left' style={{ overflowY: 'scroll' }}>
+                <div className='File-left' >
                     <div className='File-left__item1' >
                         <span>文件管理</span>     
                     </div>

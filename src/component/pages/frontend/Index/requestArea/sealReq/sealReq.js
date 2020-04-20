@@ -54,7 +54,7 @@ const SealReq = (props) => {
         setPhone(val.target.value)
     }
     const handleNoticeChange = (val) => {
-        if(val.target.value.length>140){return}
+        // if(val.target.value.length>140){return}
         setNotice(val.target.value)
     }
     const handleType1Change = (val) => {
@@ -128,7 +128,7 @@ const SealReq = (props) => {
             </div>
             <div className='sealReq-wrap'>
                 <div className='sealReq-wrap__title'>用印申请</div>
-                <div className='sealReq-wrap__box'>
+                <div className='sealReq-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='sealReq-wrap__div'>
                         <Text strong className="sealReq-wrap__text">主题</Text>
                         <Input
@@ -148,7 +148,6 @@ const SealReq = (props) => {
                         />
                     </div>
                 </div>
-                
                 <div className='sealReq-wrap__box'>
                     <div className='sealReq-wrap__div'>
                         <Text strong className="sealReq-wrap__text">日期</Text>

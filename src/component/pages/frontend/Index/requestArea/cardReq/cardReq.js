@@ -49,7 +49,7 @@ const CardReq = (props) => {
         setMail(val.target.value)
     }
     const handleNoticeChange = (val) => {
-        if (val.target.value.length > 140) { return }
+        // if (val.target.value.length > 140) { return }
         setNotice(val.target.value)
     }
     const handleNumberChange = (val) => {
@@ -120,7 +120,7 @@ const CardReq = (props) => {
             </div>
             <div className='cardReq-wrap'>
                 <div className='cardReq-wrap__title'>名片申请</div>
-                <div className='cardReq-wrap__box'>
+                <div className='cardReq-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='cardReq-wrap__div'>
                         <Text strong className="cardReq-wrap__text">主题</Text>
                         <Input
@@ -140,7 +140,6 @@ const CardReq = (props) => {
                         />
                     </div>
                 </div>
-                
                 <div className='cardReq-wrap__box'>
                     <div className='cardReq-wrap__div'>
                         <Text strong className="cardReq-wrap__text">职称</Text>

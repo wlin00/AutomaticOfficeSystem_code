@@ -1,4 +1,7 @@
 .NoticeIndex{
+    .NoticeIndex-bottom::-webkit-scrollbar{
+        display: none;
+    }
     &-top{
         width: 100%;
         box-sizing: border-box;
@@ -10,7 +13,7 @@
         background: #fff;
         padding-bottom: 20px;
         margin-bottom: 40px;
-        max-height: 800px;
+        // max-height: 800px;
         overflow-y: scroll;
         &__div{
             width: 100%;

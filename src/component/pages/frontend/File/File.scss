@@ -18,6 +18,7 @@
         right: 8%;
     }
     &-left{
+        overflow-y: scroll;
         width: 15%;
         height:600px;
         background-color: white;
@@ -75,6 +76,9 @@
 
         }
 
+    }
+    &-left::-webkit-scrollbar{
+        display: none;
     }
     &-bfc{
         overflow: hidden;

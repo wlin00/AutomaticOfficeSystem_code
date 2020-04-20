@@ -40,7 +40,7 @@ const Account = (e) => {
 
             </ul>
             <div className='Account-wrap'>
-                <div className='Account-wrap__box'>
+                <div className='Account-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='Account-wrap__div' style={{ justifyContent: 'flex-start' }}>
                         <Text className="Account-wrap__text Account-wrap__lr">真实姓名</Text>
                         <Text className='Account-wrap__textOld'>{name ? name : (username ? username : '暂无')}</Text>
@@ -48,23 +48,18 @@ const Account = (e) => {
                     <div className='checkUnusual-wrap__div' style={{ justifyContent: 'flex-start' }}>
                         <Text className="checkUnusual-wrap__text Account-wrap__lr">性别</Text>
                         <Text className='Account-wrap__textOld'>{sex ? sex : '暂无'}</Text>
-
                     </div>
                 </div>
-                
                 <div className='Account-wrap__box'>
                     <div className='Account-wrap__div' style={{ justifyContent: 'flex-start' }}>
                         <Text className="Account-wrap__text Account-wrap__lr">电子邮箱</Text>
                         <Text className='Account-wrap__textOld'>{email ? email : '暂无'}</Text>
-
                     </div>
                     <div className='Account-wrap__div' style={{ justifyContent: 'flex-start' }}>
                         <Text className="Account-wrap__text Account-wrap__lr">联系方式</Text>
                         <Text className='Account-wrap__textOld'>{tel ? tel : '暂无'}</Text>
-
                     </div>
                 </div>
-
                 <div className='Account-wrap__box' style={{ width: '50%', marginTop: '25px' }}>
                     <div className='Account-wrap__div' style={{ justifyContent: 'flex-start' }}>
                         <Text className="Account-wrap__text  Account-wrap__lr">头像</Text>
@@ -106,10 +101,9 @@ const Account = (e) => {
             <ul className='Account-ul'>
                 <li className='Account-ul__li'><NavLink exact activeClassName="Account-ul__li--active" className='Account-ul__li--link' to='/people'>账户设置</NavLink></li>
                 <li className='Account-ul__li'><NavLink exact activeClassName="Account-ul__li--active" className='Account-ul__li--link' to='/people/pwdManage'>更改密码</NavLink></li>
-
             </ul>
             <div className='Account-wrap'>
-                <div className='Account-wrap__box'>
+                <div className='Account-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='Account-wrap__div' style={{ justifyContent: 'flex-start' }}>
                         <Text className="Account-wrap__text Account-wrap__lr">真实姓名</Text>
                         <Text className='Account-wrap__textOld'>{name ? name : (username ? username : '暂无')}</Text>
@@ -117,10 +111,8 @@ const Account = (e) => {
                     <div className='checkUnusual-wrap__div' style={{ justifyContent: 'flex-start' }}>
                         <Text className="checkUnusual-wrap__text Account-wrap__lr">性别</Text>
                         <Text className='Account-wrap__textOld'>{sex ? sex : '暂无'}</Text>
-
                     </div>
                 </div>
-                
                 <div className='Account-wrap__box'>
                     <div className='Account-wrap__div' style={{ justifyContent: 'flex-start' }}>
                         <Text className="Account-wrap__text Account-wrap__lr">电子邮箱</Text>

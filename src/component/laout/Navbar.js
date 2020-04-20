@@ -47,7 +47,7 @@ const Navbar = (props) => {
 
     //前台token检测
     const checkToken = async () => {
-        axios.post('AutomaticOfficeSystem/login/api/v1/testToken', {},
+        axios.post('/AutomaticOfficeSystem/login/api/v1/testToken', {},
             {
                 headers: {
                     'username': name,

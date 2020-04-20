@@ -98,14 +98,14 @@ const InfoManage = (e) => {
             .then((data) => {
                 if (data.status === 200 || data.status === 204) {
                     console.log(data)
-                    message.info('删除成员成功！')
+                    message.info('删除信息成功！')
                     setCurrentPage(1)
                     setTimeout(() => {
                         getMess()
                     }, 200)
                 }
             })
-            .catch(() => { message.info('删除成员失败！') })
+            .catch(() => { message.info('删除信息失败！') })
     };
 
     const handleCancel = e => {

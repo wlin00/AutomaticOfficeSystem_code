@@ -29,7 +29,7 @@ const InfoAdd = (props) => {
     // 数据双向绑定
    
     const handleNoticeChange = (val) => {
-        if(val.target.value.length>140){return}
+        // if(val.target.value.length>140){return}
         setNotice(val.target.value)
     }
     const handleTitleChange = (val) => {
@@ -70,7 +70,7 @@ const InfoAdd = (props) => {
                 return
             }
         }).catch(err => {
-            message.ingo(err)
+            message.info(err)
         })
     }
     
@@ -120,7 +120,7 @@ const InfoAdd = (props) => {
                 <Text strong style={{ color: '#ff0000' }} className='navFont'>添加信息</Text>
             </div>
             <div className='InfoAdd-wrap'>
-                <div className='InfoAdd-wrap__box'>
+                <div className='InfoAdd-wrap__box' style={{marginBottom:'20px'}}>
                     <div className='InfoAdd-wrap__div'>
                         <Text  className="InfoAdd-wrap__text">标题</Text>
                         <Input
@@ -130,9 +130,7 @@ const InfoAdd = (props) => {
                             onChange={handleTitleChange}
                         />
                     </div>
-               
                 </div>
-                
                 <div className='InfoAdd-wrap__box'>
                 <div className='InfoAdd-wrap__div' style={{position:'relative'}}>
                         <Text  className="InfoAdd-wrap__text">缩略图</Text>

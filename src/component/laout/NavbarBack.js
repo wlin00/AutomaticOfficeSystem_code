@@ -40,7 +40,7 @@ const Navbar = (props) => {
 
     //后台token检测，同时鉴别是否管理员身份
     const checkToken = async () => {
-        axios.post('AutomaticOfficeSystem/login/api/v1/testToken', {},
+        axios.post('/AutomaticOfficeSystem/login/api/v1/testToken', {},
             {
                 headers: {
                     'username': name,

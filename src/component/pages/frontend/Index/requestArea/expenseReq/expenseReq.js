@@ -56,7 +56,7 @@ const ExpenseReq = (props) => {
         setMoney(val.target.value)
     }
     const handleNoticeChange = (val) => {
-        if (val.target.value.length > 140) { return }
+        // if (val.target.value.length > 140) { return }
         setNotice(val.target.value)
     }
     const handleTypeChange = (val) => {
@@ -135,7 +135,7 @@ const ExpenseReq = (props) => {
             </div>
             <div className='expenseReq-wrap'>
                 <div className='expenseReq-wrap__title' style={{ marginBottom: '1px' }}>费用报销</div>
-                <div className='expenseReq-wrap__box' style={{ marginBottom: '-20px' }}>
+                <div className='expenseReq-wrap__box' style={{ marginBottom: '20px' }}>
                     <div className='expenseReq-wrap__div' >
                         <Text strong className="expenseReq-wrap__text">主题</Text>
                         <Input
@@ -155,8 +155,7 @@ const ExpenseReq = (props) => {
                         />
                     </div>
                 </div>
-                
-                <div className='expenseReq-wrap__box'>
+                <div className='expenseReq-wrap__box' >
                     <div className='expenseReq-wrap__div'>
                         <Text strong className="expenseReq-wrap__text">付款日期</Text>
                         <DatePicker

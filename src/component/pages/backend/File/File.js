@@ -151,9 +151,9 @@ const FileBack = (props) => {
                         </div>
                     </Modal>
                 </div>
-                <div className='File-left' style={{ overflowY: 'scroll' }}>
+                <div className='File-left' >
                     <div className='File-left__item1' >
-                        <span>文件管理</span>     
+                        <span style={{fontSize:'25px'}}>文件管理</span>     
                         {/* <Text> */}
                           <Icon onClick={showModal} className='File-icon' type="plus-square" />
                         {/* </Text> */}

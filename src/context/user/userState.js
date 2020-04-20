@@ -41,7 +41,7 @@ const UserState = props => {
         setLoading(true)//只要开始请求数据，更改为loading状态  
         let res = null
         try {
-            res = await axios.get('AutomaticOfficeSystem/personnelPortal/api/v1/userInfo', {})
+            res = await axios.get('/AutomaticOfficeSystem/personnelPortal/api/v1/userInfo', {})
         } catch (err) {
             setLoading(false)
             message.info(err)
@@ -62,11 +62,11 @@ const UserState = props => {
         // setLoading(true)//只要开始请求数据，更改为loading状态  
         let res = null
         try {
-            res = await axios.get('AutomaticOfficeSystem/common/api/v1/getDepartmentList', {})
+            res = await axios.get('/AutomaticOfficeSystem/common/api/v1/getDepartmentList', {})
         } catch (err) {
             // setLoading(false)
             message.info(err)
-            return
+            return Promise.reject(err)
         }
         
         dispatch({

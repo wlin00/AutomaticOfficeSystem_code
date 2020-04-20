@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Spin,Typography, Table, Input, Tag, Button, Modal, message, Select } from 'antd'
+import { Spin, Typography, Table, Input, Tag, Button, Modal, message, Select } from 'antd'
 import UserContext from '../../../../../../context/user/userContext'
 import Spinner from '../../../../../laout/Spinner'
 import { SyncOutlined } from '@ant-design/icons';
@@ -17,13 +17,13 @@ const Table1 = (props) => {
 
     //实例化context
     const userContext = useContext(UserContext)
-    const {setMode, mode, getSearchTable, _table, _count,getTable, table = [], count = 0, getDutyList, duty = [], loading } = userContext
+    const { setMode, mode, getSearchTable, _table, _count, getTable, table = [], count = 0, getDutyList, duty = [], loading } = userContext
 
     useEffect(() => {
         getTable(1, 5, 1) //默认获取第一页数据
         getDutyList()   //拉取职务信息外键
+
     }, [])
-    console.log('table1: ', table, 'duty: ', duty)
 
 
     //分页
@@ -65,21 +65,16 @@ const Table1 = (props) => {
 
     const columns = [
         {
+            title: '姓名',
+            dataIndex: 'username',
+            key: 'username',
+            className: 'antd_name',
+        },
+        {
             title: '头像',
             dataIndex: 'img',
             key: 'img',
-            render: src => <span>
-                {<img className='Table1-img'
-                    src={src}
-                    alt='pic'
-                />}
-            </span>,
-        },
-        {
-            title: '姓名',
-            dataIndex: 'name',
-            key: 'name',
-            render: text => <span>{text}</span>,
+            render: src => <span>{<img className='Table1-img' src={src} alt='pic' />}</span>,
         },
         {
             title: '联系方式',
@@ -99,7 +94,6 @@ const Table1 = (props) => {
                 <span>
                     {tags.map(tag => {
                         let color = 'geekblue';
-
                         return (
                             <Tag color={color} key={tag}>
                                 {tag.toUpperCase()}
@@ -109,43 +103,39 @@ const Table1 = (props) => {
                 </span>
             ),
         },
-        // {
-        //     title: '操作',
-        //     key: 'action',
-        //     render: (text, record) => (
-        //         <span>
-        //             <span style={{color:'red'}}>删除</span>
-        //         </span>
-        //     ),
-        // },
     ];
 
     const data = [];
-    if (table.length >0) {
+    if (table.length > 0) {
         table.forEach((item, index) => {
             data.push({
                 key: item.id,
-                img: item.portraits.includes('default.png')  ? imgUser : 'http://52.80.161.97:9616/AutomaticOfficeSystem/portraits/' + item.portraits,
-                name: item.name ? item.name : '未填写',
+                username: item.name ? item.name : '未填写',
+                img: item.portraits.slice(24),
                 phone: item.tel ? item.tel : '未填写',
                 mail: item.email ? item.email : '未填写',
-                // tags: item.right === 0 ? ['普通用户'] : ['管理员']
                 tags: item.id && item.duty && duty.length > 0 ? [`${((duty[0].dutyName))}`] : ['未填写']
             })
         })
     }
 
-    if (loading) {return <Spin className="myLoading" tip="加载中..."  size='large'>
-         <div className='Table1'>
-           
-           <div className='Table1-table' style={{ marginBottom: '10px' }}>
-               <Table columns={columns} dataSource={data} pagination={paginationProps} />
-           </div>
-       </div>
-    </Spin> }
+    //处理表头兼容性问题
+    let node = document.querySelector('.antd_name>span>div>.ant-table-column-title')
+    if (node) {
+        node.innerText = '姓名'
+    }
+
+    if (loading) {
+        return <Spin className="myLoading" tip="加载中..." size='large'>
+            <div className='Table1'>
+                <div className='Table1-table' style={{ marginBottom: '10px' }}>
+                    <Table columns={columns} dataSource={data} pagination={paginationProps} />
+                </div>
+            </div>
+        </Spin>
+    }
     return (
         <div className='Table1'>
-           
             <div className='Table1-table' style={{ marginBottom: '10px' }}>
                 <Table columns={columns} dataSource={data} pagination={paginationProps} />
             </div>

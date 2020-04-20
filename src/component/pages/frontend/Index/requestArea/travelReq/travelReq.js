@@ -48,7 +48,7 @@ const TravelReq = (props) => {
         setTime(val.target.value)
     }
     const handleNoticeChange = (val) => {
-        if (val.target.value.length > 140) { return }
+        // if (val.target.value.length > 140) { return }
         setNotice(val.target.value)
     }
     const handleRadioChange = (val) => {
@@ -136,8 +136,7 @@ const TravelReq = (props) => {
                         />
                     </div>
                 </div>
-
-                <div className='travelReq-wrap__box' style={{ width: '50%', marginTop: '25px' }}>
+                <div className='travelReq-wrap__box' style={{ width: '50%', marginTop: '25px',marginBottom:'20px' }}>
                     <div className='travelReq-wrap__div'>
                         <Text strong className="travelReq-wrap__text">申请类型</Text>
                         <Radio.Group onChange={handleRadioChange}
@@ -149,7 +148,6 @@ const TravelReq = (props) => {
                         </Radio.Group>
                     </div>
                 </div>
-                
                 <div className='travelReq-wrap__box'>
                     <div className='travelReq-wrap__div'>
                         <Text strong className="travelReq-wrap__text">开始时间</Text>
@@ -169,8 +167,6 @@ const TravelReq = (props) => {
                         />
                     </div>
                 </div>
-
-
                 <div className='travelReq-wrap__notice'>
                     <Text strong className="travelReq-wrap__text">出差事由</Text>
                     <textarea
@@ -180,16 +176,11 @@ const TravelReq = (props) => {
                         onChange={handleNoticeChange}
                     />
                 </div>
-
                 <div className='travelReq-wrap__bottom'>
                     <Button type='danger' className='travelReq-wrap__bottom--btn' onClick={handleSubmit}>确定</Button>
                     <Link to='/index/requestProcess/personnel' style={{ height: '100%' }}><Button className='travelReq-wrap__bottom--btn' >取消</Button></Link>
                 </div>
-
             </div>
-
-
-
         </div>
     )
 }
