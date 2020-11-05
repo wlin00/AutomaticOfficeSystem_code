@@ -38,7 +38,7 @@ const Home = (e) => {
  
     //生命周期获取list数据
     useEffect(()=>{
-        getLoginUser()
+        // getLoginUser()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])  
 

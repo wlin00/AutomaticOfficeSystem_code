@@ -8,6 +8,8 @@ import Notice from './component/pages/frontend/Notice/Notice'
 import File from './component/pages/frontend/File/File'
 import People from './component/pages/frontend/People/People'
 import overTimeReq from './component/pages/frontend/Index/requestArea/overTimeReq/overTimeReq'
+import Tool from './component/laout/Tool2/Tool2'
+
 //后台
 import IndexBack from './component/pages/backend/IndexBack/IndexBack'
 import Authority from './component/pages/backend/Authority/Authority'
@@ -55,6 +57,7 @@ const App = () => {  //Hooks重构App.js
               <Route  path="/file" component={File} />
               <Route  path="/people" component={People} />
               <Route  path="/index/overTimeReq" component={overTimeReq} />
+              <Route  path="/tool" component={Tool} />
               {/* 后台 */}
               <Route path ="/indexBack" component={IndexBack} />
               <Route path ="/authority" component={Authority} />

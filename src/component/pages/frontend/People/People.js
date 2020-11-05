@@ -28,7 +28,7 @@ const People = (e) => {
 
     //生命周期获取list数据
     useEffect(() => {
-        getLoginUser()
+        // getLoginUser()
     }, [])
     // console.log('list2', list)
     const username = localStorage.getItem('name')?localStorage.getItem('name'):'暂无';

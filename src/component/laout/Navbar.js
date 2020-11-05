@@ -22,7 +22,7 @@ const Navbar = (props) => {
             }, 1000)
         }
         else {
-            checkToken()
+            // checkToken()
         }
 
 
@@ -130,6 +130,8 @@ const Navbar = (props) => {
                 <li><NavLink className="link" activeClassName="nav_active" to="/notice">信息公示</NavLink></li>
                 <li><NavLink className="link" activeClassName="nav_active" to="/file">文件管理</NavLink></li>
                 <li><NavLink className="link" activeClassName="nav_active" to="/people">人事门户</NavLink></li>
+                <li><NavLink className="link" activeClassName="nav_active" to="/tool">R-test</NavLink></li>
+
             </ul>
             <ul className='nav_ul2'>
                 <Dropdown overlay={menu} className='dropDown'>

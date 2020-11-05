@@ -50,32 +50,39 @@ const Login = (props) => {
         };
         let dt = { password: password, username: username } //需提交的表单数据，需用qs转化
 
+        localStorage.setItem('name', 'admin') //登陆信息存在本地缓存
+        localStorage.setItem('token', 'slim123') //登陆信息存在本地缓存
+        localStorage.setItem('mode', '1') //1表示当前登陆模式为前台
+
+        props.history.push({ pathname: '/index' })
+
+
         // eslint-disable-next-line
-        axios.post('/AutomaticOfficeSystem/login/api/v1/login', qs.stringify(dt),
-            {
-                headers: {
-                    'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
-                    'Accept': 'application/json;charset=UTF-8'
-                }
-            }
-        ).then((data) => {
-            if (data.status === 200) {
-                if(data.data.msg === 'ok'){
-                    console.log(data.data)
-                    localStorage.setItem('name', username) //登陆信息存在本地缓存
-                    localStorage.setItem('token', data.data.data.token) //登陆信息存在本地缓存
-                    localStorage.setItem('mode', '1') //1表示当前登陆模式为前台
+        // axios.post('/AutomaticOfficeSystem/login/api/v1/login', qs.stringify(dt),
+        //     {
+        //         headers: {
+        //             'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        //             'Accept': 'application/json;charset=UTF-8'
+        //         }
+        //     }
+        // ).then((data) => {
+        //     if (data.status === 200) {
+        //         if(data.data.msg === 'ok'){
+        //             console.log(data.data)
+        //             localStorage.setItem('name', username) //登陆信息存在本地缓存
+        //             localStorage.setItem('token', data.data.data.token) //登陆信息存在本地缓存
+        //             localStorage.setItem('mode', '1') //1表示当前登陆模式为前台
 
-                    props.history.push({ pathname: '/index' })
-                    alertContext.setAlert("欢迎登陆！", "dark") 
+        //             props.history.push({ pathname: '/index' })
+        //             alertContext.setAlert("欢迎登陆！", "dark") 
 
-                }
+        //         }
 
-            }
-        },()=>{
-            return Promise.reject('请求失败，请重试！')
-        })
-            .catch((err) => { console.log(err);message.info(err); clearData()});
+        //     }
+        // },()=>{
+        //     return Promise.reject('请求失败，请重试！')
+        // })
+        // .catch((err) => { console.log(err);message.info(err); clearData()});
            
 
     }
