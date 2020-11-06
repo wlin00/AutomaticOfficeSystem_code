@@ -1,38 +1,42 @@
 // Demo2 : React-fun函数组件， antd表单验证实例（getFieldDecorator）
 
-import React, { useState, useCallback, useRef, useEffect } from 'react'
-import {Form, Button, Select, Input, message} from 'antd'
+import React, { useState, useEffect, useCallback, useImperativeHandle,forwardRef } from 'react'
+import {Form, Button, Select, Input, message, Checkbox} from 'antd'
 import '../Child/Child.scss'
 
 const {Option} = Select
 
-const ChildInit = (props) =>  {
+const ChildInit = forwardRef(({...props}, ref) =>  {
   const {initName} = props
+
+  useImperativeHandle(ref, () => ({
+    handleSubmit,
+  }))
     
-
-    const handleSubmit = useCallback(async () => {
-        try{
-            await props.form.validateFields((err, value) => {
-                if(!err) {
-                  message.success('success')
-                  console.log('succ', value)
-                }
-            })
-        } catch (err) {
-            console.log('er',err)
-        }    
-    })
-
-    const handleSelect= useCallback((e) => {
-        props.form.setFieldsValue({
-            username: `Hi ${e === 'male' ? '男人' : '女人'}`
+  const handleSubmit = useCallback(async () => {
+      try{
+        await props.form.validateFields((err, value) => {
+            if(!err) {
+                message.success('success')
+                console.log('succ', value)
+            }
         })
-    })
+      } catch (err) {
+          console.log('er',err)
+      }    
+  })
 
-    const {getFieldDecorator} = props.form
-    
-    return ( 
+  const handleSelect= useCallback((e) => {
+      props.form.setFieldsValue({
+          username: `Hi ${e === 'male' ? '男人' : '女人'}`
+      })
+  })
+
+  const {getFieldDecorator} = props.form
+
+  return ( 
       <Form
+          ref={ref}
           className="Child"
           labelCol={{ span:2 }} 
           wrapperCol={{ span:8 }}    
@@ -40,8 +44,8 @@ const ChildInit = (props) =>  {
           <Form.Item label="用户名">
           {
               getFieldDecorator('username',{
-                rules: [{ required: true, message: '请输入用户名' }],
-                initialValue: initName ? initName : ''  
+              rules: [{ required: true, message: '请输入用户名' }],
+              initialValue: initName ? initName : ''  
               })(<Input allowClear placeholder="请输入用户名" />) 
           }
           </Form.Item>
@@ -73,8 +77,8 @@ const ChildInit = (props) =>  {
           <Button type="primary" onClick={handleSubmit}>提交</Button>
           </Form.Item>
       </Form>
-    );
-}
+  );
+})
 
 const Child = Form.create()(ChildInit);
  

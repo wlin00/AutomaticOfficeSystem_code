@@ -4,19 +4,28 @@ import React, { useState, useCallback, useRef, useEffect } from 'react'
 import Navbar from '../../laout/Navbar'
 import Child from './Child/Child'
 import '../Tool2/Tool2.scss'
-// import {Form, Button, Select, Input, message} from 'antd'
-// const {Option} = Select
+import {Button} from 'antd'
 
 const Tool2 = () =>  {
     
   const [name, setName] = useState('Tom2')
+  // ref获取子组件引用
+  let childRef = useRef()
     
+  const childValid = useCallback(() => {
+    childRef && childRef.handleSubmit &&  childRef.handleSubmit()
+  },[childRef])
+
   return ( 
       <div>
-          <Navbar title="自动化办公系统" />
+          <Navbar title="测试Demo" />
           <div className="Tool2">
-            <Child initName={name} />  
+            <Child wrappedComponentRef={(inst)=>childRef = inst} ref={childRef} initName={name} />  
+            <div style={{marginTop:'10px',background:'#fff'}}>
+              <Button onClick={childValid} type="primary">parent-提交</Button>
+            </div>
           </div>
+        
       </div>
   );
 }
