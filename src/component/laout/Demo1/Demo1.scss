@@ -1,0 +1,13 @@
+.Demo1{
+  width: 100%;
+  min-height: 700px;
+  background: yellow;
+  .item{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: red;
+    text-align: center;
+    line-height: 100px;
+  }
+}

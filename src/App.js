@@ -8,7 +8,7 @@ import Notice from './component/pages/frontend/Notice/Notice'
 import File from './component/pages/frontend/File/File'
 import People from './component/pages/frontend/People/People'
 import overTimeReq from './component/pages/frontend/Index/requestArea/overTimeReq/overTimeReq'
-import Tool from './component/laout/Tool2/Tool2'
+import Tool from './component/laout/Demo1/Demo1'
 
 //后台
 import IndexBack from './component/pages/backend/IndexBack/IndexBack'

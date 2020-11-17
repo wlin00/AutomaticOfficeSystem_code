@@ -6,25 +6,41 @@ import '../Child/Child.scss'
 
 const {Option} = Select
 
-const ChildInit = forwardRef(({...props}, ref) =>  {
-  const {initName} = props
+const Child = forwardRef(({...props}, ref) =>  {
+  const {initName,form} = props
 
   useImperativeHandle(ref, () => ({
     handleSubmit,
+    form
   }))
     
-  const handleSubmit = useCallback(async () => {
-      try{
-        await props.form.validateFields((err, value) => {
-            if(!err) {
-                message.success('success')
-                console.log('succ', value)
-            }
-        })
-      } catch (err) {
-          console.log('er',err)
-      }    
-  })
+  const isCheck =()=> {
+    return new Promise((resolve,reject) => {
+      props.form.validateFields((err, value) => {
+        if(err) {
+          reject(err)
+        } else {
+          resolve(value);
+        }
+      })
+    })
+  }
+
+  // 校验表单信息并提交
+  const handleSubmit = async () => {
+    let res = {}
+    try{
+      const flag = await isCheck()
+      if(!flag){
+        return res
+      }
+      res.data = flag
+      return res
+    } catch(err) {
+    }
+    console.log('fm', form)
+}
+
 
   const handleSelect= useCallback((e) => {
       props.form.setFieldsValue({
@@ -36,7 +52,6 @@ const ChildInit = forwardRef(({...props}, ref) =>  {
 
   return ( 
       <Form
-          ref={ref}
           className="Child"
           labelCol={{ span:2 }} 
           wrapperCol={{ span:8 }}    
@@ -73,13 +88,13 @@ const ChildInit = forwardRef(({...props}, ref) =>  {
               </Select>) 
           }
           </Form.Item> 
-          <Form.Item style={{textAlign:'left'}} wrapperCol={{ span:8, offset:2 }}>
+          {/* <Form.Item style={{textAlign:'left'}} wrapperCol={{ span:8, offset:2 }}>
           <Button type="primary" onClick={handleSubmit}>提交</Button>
-          </Form.Item>
+          </Form.Item> */}
       </Form>
   );
 })
 
-const Child = Form.create()(ChildInit);
+// const Child = Form.create()(ChildInit);
  
-export default Child;
+export default  Form.create()(Child);
